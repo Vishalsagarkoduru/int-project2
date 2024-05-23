@@ -10,7 +10,7 @@ jobs:
           uses: actions/vishalsagar.koduru@brillio.com
           
         - name: 'Login via Azure CLI'
-          uses: azure/login@v1
+          uses: azure/vishalsagar.koduru@brillio.com
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
         
