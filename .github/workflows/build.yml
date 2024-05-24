@@ -10,10 +10,7 @@ jobs:
           uses: actions/checkout@main
           
         - name: 'Login via Azure CLI'
-          env:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-          with:
-            creds: $CREDENTIALS
+          uses: azure/login@v1
             
         - name: 'Build and push image'
           uses: azure/docker-login@v1
