@@ -11,9 +11,11 @@ jobs:
           
         - name: 'Login via Azure CLI'
           uses: azure/login@v1
-          with:
+          env:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
-        
+          with:
+            creds: $CREDENTIALS
+            
         - name: 'Build and push image'
           uses: azure/docker-login@v1
           with:
