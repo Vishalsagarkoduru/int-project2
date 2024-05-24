@@ -1,22 +1,20 @@
+name: Run Azure Login with OpenID Connect
 on: [push]
-name: Linux_Container_Workflow
+
 permissions:
-  id-token: write
-  contents: read
-jobs:
-    build-and-deploy:
-        runs-on: ubuntu-latest
-        steps:
-        # checkout the repo
-        - name: 'Checkout GitHub Action'
-          uses: actions/checkout@main
-          
-        - name: 'Login via Azure CLI'
+      id-token: write
+      contents: read
+      
+jobs: 
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+        - name: 'Az CLI login'
           uses: azure/login@v1
           with:
-            client-id: ${{ secrets.AZURE_CLIENTID }}
-            tenant-id: ${{ secrets.AZURE_TENANTID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }} 
+            client-id: ${{ secrets.AZURE_CLIENT_ID }}
+            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
             
         - name: 'Build and push image'
           uses: azure/docker-login@v1
