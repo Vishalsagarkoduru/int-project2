@@ -22,7 +22,6 @@ spec:
         image: brlcrintegrationnonprod.azurecr.io/development:${IMAGE_TAG}
         ports:
         - containerPort: 80
-
 ---
 apiVersion: v1
 kind: Service
