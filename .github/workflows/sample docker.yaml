@@ -26,10 +26,10 @@ jobs:
         uses: azure/docker-login@v1
         with:
           login-server: aksagicmultitenant.azurecr.io
-          username: aksagicmultitenant
+          username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
       - name: Build and push Docker image
         run: |
-          docker build -t aksagicmultitenant.azurecr.io.azurecr.io/syntheticapi:latest .
-          docker push aksagicmultitenant.azurecr.io.azurecr.io/syntheticapi:latest
+          docker build -t aksagicmultitenant.azurecr.io/syntheticapi:latest .
+          docker push aksagicmultitenant.azurecr.io/syntheticapi:latest
